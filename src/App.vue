@@ -22,6 +22,9 @@
         <div v-if="openProject === 'messages'">
           <ProjectMessages/>
         </div>
+        <div v-if="openProject === 'artworks'">
+          <ProjectArtworks/>
+        </div>
         <div v-if="openProject === 'credits'">
           <ProjectCredits/>
         </div>
@@ -39,6 +42,7 @@ import ProjectList from '@/data/projects';
 import ProjectVideo from '@/components/ProjectVideo.vue';
 import ProjectImage from '@/components/ProjectImage.vue';
 import ProjectMessages from '@/components/ProjectMessages.vue';
+import ProjectArtworks from '@/components/ProjectArtworks.vue';
 import ProjectCredits from '@/components/ProjectCredits.vue';
 import ProjectQuests from '@/components/ProjectQuests.vue';
 import EnnaBirthday from './game';
@@ -101,6 +105,7 @@ export default {
     ProjectVideo,
     ProjectImage,
     ProjectMessages,
+    ProjectArtworks,
     ProjectCredits,
     ProjectQuests,
   },

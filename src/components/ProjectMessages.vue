@@ -1,14 +1,7 @@
 <template>
   <div class="project">
     <div class="project-description">
-      <h2>Birthday Cards</h2>
-      <p>
-        Many aloupeeps sincerely wish Enna Alouette a very happy birthday this year!
-      </p>
-      <p class="blue--text">
-        PROTIP: Click on a card to mark it as read. It will persist even across website visits.
-        <span class="red--text font-weight-bold">Read messages:  {{countRead}} / {{countAll}}</span>
-      </p>
+      <h2>Birthday Cards for Elodie</h2>
     </div>
     <div class="project-close">
       <v-btn
@@ -41,7 +34,7 @@ import twemoji from 'twemoji';
 
 export default {
   data: () => ({
-    source: 'https://vtubertools.sfo3.digitaloceanspaces.com/tribute/enna2022.json',
+    source: 'https://vtubertools.sfo3.digitaloceanspaces.com/tribute/elodie.json',
     cards: [],
     read: {},
     countRead: 0,
@@ -51,15 +44,15 @@ export default {
     toggleRead(key) {
       if (typeof this.read[key] === 'undefined') this.read[key] = false;
       this.read = { ...this.read, [key]: !this.read[key] };
-      localStorage.setItem('enna2022_read', JSON.stringify(this.read));
+      localStorage.setItem('elodie_read', JSON.stringify(this.read));
       this.countRead = Object.values(this.read).filter((v) => !!v).length;
     },
   },
   mounted() {
     // Load data
     (async () => {
-      if (!localStorage.getItem('enna2022_read')) localStorage.setItem('enna2022_read', '{}');
-      this.read = JSON.parse(localStorage.getItem('enna2022_read'));
+      if (!localStorage.getItem('elodie_read')) localStorage.setItem('elodie_read', '{}');
+      this.read = JSON.parse(localStorage.getItem('elodie_read'));
       this.countRead = Object.values(this.read).filter((v) => !!v).length;
       const fetchSource = await axios.get(this.source).catch(() => null);
       const data = fetchSource && fetchSource.data ? fetchSource.data : {};
@@ -100,7 +93,7 @@ export default {
   }
   .project-content {
     position:absolute;
-    top: 90px;
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;

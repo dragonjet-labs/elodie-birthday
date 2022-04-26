@@ -35,7 +35,7 @@ class PartyScene extends Phaser.Scene {
     const centerY = height / 2;
 
     // Version number
-    this.add.text(width - 10, 10, 'Version 19.18.09', { fontSize: 14, color: '#000000' })
+    this.add.text(width - 10, 10, 'Version 26.00.20', { fontSize: 14, color: '#000000' })
       .setDepth(60000)
       .setOrigin(1, 0);
 
@@ -54,7 +54,7 @@ class PartyScene extends Phaser.Scene {
     // Create game objects and placements
     Object.entries(ElementsData)
       .forEach(([key, {
-        texture, x, y, z, scale, str, ox, oy,
+        texture, x, y, z, scale, str, ox, oy, flip,
         text, project, font, dir, audio, volume,
       }]) => {
         const container = this.add.container(centerX, centerY).setDepth(z * 10);
@@ -62,6 +62,7 @@ class PartyScene extends Phaser.Scene {
         const image = this.add.image((width * x) - centerX, (height * y) - centerY, texture || key)
           .setOrigin(ox, oy);
         if (scale) image.setScale(scale);
+        if (flip) image.setScale(-scale, scale);
         container.add(image);
         // Interactive object
         if (text) {
@@ -77,30 +78,6 @@ class PartyScene extends Phaser.Scene {
           image,
         };
       });
-
-    // Animated Aloupeeps
-    AloupeepsData.forEach(({
-      sprite, x, y, z, scale, str, flip, ox = 0.5, oy = 0.5,
-      start, text, project, font, audio, volume,
-    }, index) => {
-      const ax = (width * x) - centerX;
-      const ay = (height * y) - centerY;
-      const container = new Aloupeeps({
-        scene: this, x: ax, y: ay, ox, oy, sprite, scale, flip, start,
-      })
-        .setDepth(z * 10)
-        .setPosition(centerX, centerY);
-      this.movables[`aloupeeps${index}`] = {
-        container,
-        strX: str * INTENSITY_X,
-        strY: str * INTENSITY_Y,
-        sprite: container.sprite,
-      };
-      // Interactive object
-      if (text) this.interactiveAloupeep(container, text, project, font, audio, volume);
-      // Transition
-      this.transitionIn(container, 'top');
-    });
 
     // Transition Animation
     this.transition
@@ -145,7 +122,6 @@ class PartyScene extends Phaser.Scene {
       lifespan: 7000,
       speed: { min: 3, max: 15 },
     });
-    this.confettiEmitter.setVisible(this.confettiState);
   }
 
   transitionIn(container, dir) {
@@ -221,14 +197,7 @@ class PartyScene extends Phaser.Scene {
         if (key === 'cake') {
           // Cake available if lights off
           if (!this.lightState) this.blowCakeCandles();
-        } else if (this.lightState && key === 'millie') {
-          // Millie special interaction when lights on, toggles confetti
-          this.toggleConfetti();
-        } else if (this.lightState && key === 'radio') {
-          // Radio special interaction when lights on, plays Aloucast
-          this.toggleRadio();
-          this.game.vue.openProject = project;
-        } else if (key === 'playbtn') {
+        } else if (key === 'radio') {
           // Toggle BGM and Hover SFX
           this.toggleSounds();
         } else if (this.lightState) {
@@ -343,60 +312,13 @@ class PartyScene extends Phaser.Scene {
     });
     this.lights.disable();
     this.confettiState = true;
-    this.confettiEmitter.setVisible(this.confettiState);
-    // More confetti
-    const { width, height } = this.sys.game.canvas;
-    this.confetti
-      .createEmitter({
-        frame: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        x: width * 0.648,
-        y: height * 0.775,
-        scale: 0.4,
-        gravityY: 150,
-        angle: { min: -170, max: -80 },
-        frequency: 1,
-        quantity: 20,
-        lifespan: 9000,
-        speed: { min: 200, max: 400 },
-        maxParticles: 40,
-      });
-    // Confetti sound after some delay
-    setTimeout(() => {
-      this.sound.add('confetti').setVolume(0.7).play();
-    }, 300);
-  }
-
-  toggleRadio() {
-    if (!this.radioAudio) {
-      // Audio. Randomize tune in/out sounds
-      const tuneIn = this.sound.add(`radio_in_0${Math.floor(Math.random() * 4) + 1}`).setVolume(0.4);
-      this.radioAudio = this.sound.add('aloucast').setVolume(0.8);
-      const tuneOut = this.sound.add(`radio_out_0${Math.floor(Math.random() * 3) + 1}`).setVolume(0.4);
-      // Events
-      tuneIn.on('complete', () => {
-        if (this.radioAudio) this.radioAudio.play();
-      });
-      this.radioAudio.on('complete', () => {
-        this.radioAudio = null;
-        tuneOut.play();
-      });
-      // Start
-      tuneIn.play();
-    } else {
-      const tuneOut = this.sound.add(`radio_out_0${Math.floor(Math.random() * 3) + 1}`).setVolume(0.4);
-      tuneOut.play();
-      this.radioAudio.stop();
-      this.radioAudio = null;
-    }
   }
 
   toggleSounds() {
     this.soundsEnabled = !this.soundsEnabled;
     if (this.soundsEnabled) {
-      this.movables.playbtn.image.setTexture('playbtn');
       this.bgm.play();
     } else {
-      this.movables.playbtn.image.setTexture('pausebtn');
       this.bgm.stop();
     }
   }

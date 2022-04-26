@@ -21,18 +21,18 @@ module.exports = {
     // HTML Title used for OpenGraph linters (social media links)
     config.plugin('html').tap((args) => {
       // eslint-disable-next-line no-param-reassign
-      args[0].title = 'Happy Birthday Enna!';
+      args[0].title = 'Happy Birthday Elodie!';
       // eslint-disable-next-line no-param-reassign
       args[0].meta = {
-        description: 'Aloupeeps celebrate Enna Alouette\'s Birthday!',
-        'og:title': 'Happy Birthday Enna!',
+        description: 'Aloupeeps celebrate Elodie\'s Birthday!',
+        'og:title': 'Happy Birthday Elodie!',
         'og:type': 'website',
-        'og:description': 'Aloupeeps celebrate Enna Alouette\'s Birthday!',
-        'og:image': 'https://birthday.ennaalouette.com/ogimage.png',
+        'og:description': 'Aloupeeps celebrate Elodie\'s Birthday!',
+        'og:image': 'https://elodie.fromyour.fans/ogimage.png',
         'twitter:card': 'summary_large_image',
-        'twitter:title': 'Happy Birthday Enna!',
-        'twitter:description': 'Aloupeeps celebrate Enna Alouette\'s Birthday!',
-        'twitter:image': 'https://birthday.ennaalouette.com/ogimage.png',
+        'twitter:title': 'Happy Birthday Elodie!',
+        'twitter:description': 'Aloupeeps celebrate Elodie\'s Birthday!',
+        'twitter:image': 'https://elodie.fromyour.fans/ogimage.png',
       };
       return args;
     });
@@ -56,7 +56,7 @@ module.exports = {
       });
   },
   pwa: {
-    name: 'Enna Birthday',
+    name: 'Elodie Birthday',
     themeColor: '#102471',
     workboxOptions: {
       skipWaiting: true,
@@ -68,9 +68,9 @@ module.exports = {
     },
     assetsVersion: '2022_02_19_18_09',
     manifestOptions: {
-      name: 'Enna Birthday',
-      short_name: 'Enna Birthday',
-      description: 'Aloupeeps celebrate Enna Alouette\'s Birthday in 2022',
+      name: 'Elodie Birthday',
+      short_name: 'Elodie Birthday',
+      description: 'Aloupeeps celebrate Elodie\'s Birthday in 2022',
       display: 'standalone',
       orientation: 'landscape',
       background_color: '#ffffff',
