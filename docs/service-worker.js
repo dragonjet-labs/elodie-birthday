@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.88eb8dcfc88863e043825d9b87140a31.js"
+  "/precache-manifest.64337fc611e5e0f8e4f92cb31b3438c6.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "tribute-enna2022"});
+workbox.core.setCacheNameDetails({prefix: "elodie.fromyour.fans"});
 
 workbox.core.skipWaiting();
 
