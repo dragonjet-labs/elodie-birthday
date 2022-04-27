@@ -1,7 +1,5 @@
 import Phaser from 'phaser';
 import ElementsData from '@/data/elements';
-import AloupeepsData from '@/data/aloupeeps';
-import Aloupeeps from '../objects/aloupeeps';
 
 const INTENSITY_X = 0.008;
 const INTENSITY_Y = 0.004;
@@ -29,13 +27,17 @@ class PartyScene extends Phaser.Scene {
 
   soundsEnabled = true;
 
+  elodieImage = null;
+
+  elodieEnnaImage = null;
+
   create() {
     const { width, height } = this.sys.game.canvas;
     const centerX = width / 2;
     const centerY = height / 2;
 
     // Version number
-    this.add.text(width - 10, 10, 'Version 26.00.20', { fontSize: 14, color: '#000000' })
+    this.add.text(width - 10, 10, 'Version 27.02.37', { fontSize: 14, color: '#000000' })
       .setDepth(60000)
       .setOrigin(1, 0);
 
@@ -63,6 +65,11 @@ class PartyScene extends Phaser.Scene {
           .setOrigin(ox, oy);
         if (scale) image.setScale(scale);
         if (flip) image.setScale(-scale, scale);
+        if (key === 'elodieenna') {
+          container.setVisible(false);
+          this.elodieEnnaImage = container;
+        }
+        if (key === 'elodie') this.elodieImage = container;
         container.add(image);
         // Interactive object
         if (text) {
@@ -175,8 +182,6 @@ class PartyScene extends Phaser.Scene {
             .setAngle((Math.random() * 11) - 5)
             .setVisible(true);
         }
-        // Painting special hover
-        if (key === 'painting' && this.lightState) image.setTexture('painting-color');
         // Hover Audio
         if (audio && this.soundsEnabled) {
           if (this.projectAudio) this.projectAudio.stop();
@@ -188,7 +193,6 @@ class PartyScene extends Phaser.Scene {
       .on('pointerout', () => {
         image.setAngle(0);
         label.setVisible(false);
-        if (key === 'painting') image.setTexture('painting');
         // Stop hover audio
         if (this.projectAudio) this.projectAudio.stop();
         this.projectAudio = null;
@@ -214,7 +218,7 @@ class PartyScene extends Phaser.Scene {
           // Stop BGM
           this.bgm.pause();
           // Special baking relay interaction, lights off into blowing candles
-          if (project === 'bakingrelay') this.lightsOff();
+          if (project === 'video01') this.lightsOff();
         }
       });
   }
@@ -290,9 +294,9 @@ class PartyScene extends Phaser.Scene {
         sprite.stop();
       }
     });
+    this.elodieEnnaImage.setVisible(true);
+    this.elodieImage.setVisible(false);
     this.lights.enable();
-    this.confettiState = false;
-    this.confettiEmitter.setVisible(this.confettiState);
   }
 
   blowCakeCandles() {

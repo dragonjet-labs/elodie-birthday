@@ -3,11 +3,12 @@ import Phaser from 'phaser';
 import PartyScene from './party';
 
 import ImgElodie from '../assets/images/elodie.png';
+import ImgElodieEnna from '../assets/images/elodieenna.png';
 import ImgCake from '../assets/images/cake.png';
 import ImgBanner from '../assets/images/banner.png';
 import ImgBalloonL from '../assets/images/balloon-l.png';
 import ImgBalloonR from '../assets/images/balloon-r.png';
-import ImgGifts from '../assets/images/gifts.png';
+import ImgMessages from '../assets/images/messages.png';
 import ImgRoom from '../assets/images/room.png';
 import ImgTable from '../assets/images/table.png';
 import ImgCouch from '../assets/images/couch.png';
@@ -60,11 +61,12 @@ class IndexScene extends Phaser.Scene {
 
     // Preload assets
     this.load.image('elodie', ImgElodie);
+    this.load.image('elodieenna', ImgElodieEnna);
     this.load.image('cake', ImgCake);
     this.load.image('banner', ImgBanner);
     this.load.image('balloon-l', ImgBalloonL);
     this.load.image('balloon-r', ImgBalloonR);
-    this.load.image('gifts', ImgGifts);
+    this.load.image('messages', ImgMessages);
     this.load.image('room', ImgRoom);
     this.load.image('table', ImgTable);
     this.load.image('couch', ImgCouch);

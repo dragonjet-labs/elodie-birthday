@@ -16,6 +16,10 @@
           <img src="@/game/assets/images/elodie.png" />
           <div class="card-name">Frank</div>
         </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/images/elodieenna.png" />
+          <div class="card-name">Hel</div>
+        </div>
       </div>
     </div>
   </div>
