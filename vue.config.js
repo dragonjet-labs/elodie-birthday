@@ -55,26 +55,26 @@ module.exports = {
         return options;
       });
   },
-  pwa: {
-    name: 'Elodie Birthday',
-    themeColor: '#102471',
-    workboxOptions: {
-      skipWaiting: true,
-      exclude: [
-        'CNAME',
-        /(.*).css.map/g,
-        /(.*).js.map/g,
-      ],
-    },
-    assetsVersion: '2022_02_19_18_09',
-    manifestOptions: {
-      name: 'Elodie Birthday',
-      short_name: 'Elodie Birthday',
-      description: 'Aloupeeps celebrate Elodie\'s Birthday in 2022',
-      display: 'standalone',
-      orientation: 'landscape',
-      background_color: '#ffffff',
-      start_url: './',
-    },
-  },
+  // pwa: {
+  //   name: 'Elodie Birthday',
+  //   themeColor: '#102471',
+  //   workboxOptions: {
+  //     skipWaiting: true,
+  //     exclude: [
+  //       'CNAME',
+  //       /(.*).css.map/g,
+  //       /(.*).js.map/g,
+  //     ],
+  //   },
+  //   assetsVersion: '2022_02_19_18_09',
+  //   manifestOptions: {
+  //     name: 'Elodie Birthday',
+  //     short_name: 'Elodie Birthday',
+  //     description: 'Aloupeeps celebrate Elodie\'s Birthday in 2022',
+  //     display: 'standalone',
+  //     orientation: 'landscape',
+  //     background_color: '#ffffff',
+  //     start_url: './',
+  //   },
+  // },
 };
