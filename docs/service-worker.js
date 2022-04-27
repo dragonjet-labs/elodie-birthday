@@ -14,12 +14,16 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.64337fc611e5e0f8e4f92cb31b3438c6.js"
+  "/precache-manifest.29e76f1e8afccf694a94c486d8361a49.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "elodie.fromyour.fans"});
 
-workbox.core.skipWaiting();
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
