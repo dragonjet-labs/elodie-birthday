@@ -11,14 +11,26 @@
       </v-btn>
     </div>
     <div class="project-content">
-      <div v-masonry="'bdaycards'" transition-duration="0.3s" item-selector=".card" stagger="0s">
+      <div v-masonry="'bdayarts'" transition-duration="0.3s" item-selector=".card" stagger="0s">
         <div v-masonry-tile class="card" >
-          <img src="@/game/assets/images/elodie.png" />
+          <img src="@/game/assets/art/frank.png" />
           <div class="card-name">Frank</div>
         </div>
         <div v-masonry-tile class="card" >
-          <img src="@/game/assets/images/elodieenna.png" />
+          <img src="@/game/assets/art/hel.png" />
           <div class="card-name">Hel</div>
+        </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/art/telo.png" />
+          <div class="card-name">Telo</div>
+        </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/art/nobu.png" />
+          <div class="card-name">Nobu</div>
+        </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/art/orange.png" />
+          <div class="card-name">Orange</div>
         </div>
       </div>
     </div>
@@ -28,6 +40,11 @@
 
 <script>
 export default {
+  mounted() {
+    setTimeout(() => { this.$redrawVueMasonry('bdayarts'); }, 1000);
+    setTimeout(() => { this.$redrawVueMasonry('bdayarts'); }, 3000);
+    setTimeout(() => { this.$redrawVueMasonry('bdayarts'); }, 5000);
+  },
 };
 </script>
 
@@ -81,7 +98,7 @@ export default {
   border-left:7px solid #858ED1;
   text-align:center;
   img {
-    max-width:100%;
+    width:100%;
     // max-height:250px;
   }
   .card-name {
