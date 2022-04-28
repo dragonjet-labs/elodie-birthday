@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.9e7cf6d6074f832db432a7e29d5e400f.js"
+  "/precache-manifest.05de020186032de387500064703f73b1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "elodie.fromyour.fans"});

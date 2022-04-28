@@ -188,7 +188,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/media/prontera.7278db52.mp3"
   },
   {
-    "revision": "ff650e7748b5fcaf060655b2238396be",
+    "revision": "c65d9a39f48783e11fef17c9ef1c0ce6",
     "url": "/ogimage.png"
   },
   {
