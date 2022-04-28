@@ -13,7 +13,7 @@
     <div class="project-content">
       <div v-masonry="'bdayarts'" transition-duration="0.3s" item-selector=".card" stagger="0s">
         <div v-masonry-tile class="card" >
-          <img src="@/game/assets/art/frank.png" />
+          <img src="@/game/assets/art/frank.jpg" />
           <div class="card-name">Frank</div>
         </div>
         <div v-masonry-tile class="card" >
@@ -29,8 +29,16 @@
           <div class="card-name">Nobu</div>
         </div>
         <div v-masonry-tile class="card" >
-          <img src="@/game/assets/art/orange.png" />
+          <img src="@/game/assets/art/orange.jpg" />
           <div class="card-name">Orange</div>
+        </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/art/keektang.png" />
+          <div class="card-name">Keektang</div>
+        </div>
+        <div v-masonry-tile class="card" >
+          <img src="@/game/assets/art/minnijay.png" />
+          <div class="card-name">MinniJay</div>
         </div>
       </div>
     </div>

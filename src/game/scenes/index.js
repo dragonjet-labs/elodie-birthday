@@ -38,7 +38,7 @@ import audioCofetti from '../assets/audio/hover/confetti.mp3';
 import audioMessages from '../assets/audio/hover/messages.mp3';
 import audioMural from '../assets/audio/hover/mural.mp3';
 
-import audioBGM01 from '../assets/audio/bgm01.mp3';
+import audioBGM01 from '../assets/audio/prontera.mp3';
 
 class IndexScene extends Phaser.Scene {
   loadingText = null;

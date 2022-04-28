@@ -5,6 +5,6 @@ module.exports = {
     warnings: '',
     lead: '',
     credits: '',
-    video: 'https://www.youtube.com/embed/693tZb67hXo',
+    video: 'https://www.youtube.com/embed/QKRam_ERcGw',
   },
 };
